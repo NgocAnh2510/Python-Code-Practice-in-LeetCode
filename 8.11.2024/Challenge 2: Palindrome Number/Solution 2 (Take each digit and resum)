@@ -1,0 +1,15 @@
+def isPalindrome(x: int) -> bool:
+    list_of_digits, list_of_new_digit, digit, count_of_tenth = [], [], 0, 0
+    a = x
+    while x > 0:
+        digit = x % 10
+        count_of_tenth += 1
+        list_of_digits = [digit] + list_of_digits
+        x = x // 10
+    list_of_digits.reverse()
+    for i in list_of_digits:
+        list_of_new_digit.append(i*10**(count_of_tenth-1))
+        count_of_tenth -= 1
+    if sum(list_of_new_digit) == a:
+        return True
+    return False
