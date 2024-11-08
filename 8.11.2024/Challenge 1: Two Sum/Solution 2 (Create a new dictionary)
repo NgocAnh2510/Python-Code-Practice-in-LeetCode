@@ -1,0 +1,9 @@
+def twoSum(self, nums: list[int], target: int) -> list[int]:
+        class_num = {} #key is number and value is index of number
+        for i, num in enumerate(nums):
+            residual = target - num
+            if residual in class_num:
+                return [class_num[residual], i]
+            class_num[num] = i
+# Thời gian: O(n), với n là số phần tử trong mảng. Mỗi phần tử được duyệt qua một lần và thao tác thêm vào/tra cứu trong dictionary có độ phức tạp O(1) trung bình.
+Không gian: O(n), vì trong trường hợp xấu nhất, ta phải lưu tất cả các phần tử vào dictionary.
