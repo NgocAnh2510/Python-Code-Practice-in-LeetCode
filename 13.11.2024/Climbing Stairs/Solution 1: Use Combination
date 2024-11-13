@@ -1,0 +1,9 @@
+import math
+def climbstairs_combinatorics(n: int) -> int:
+    total_ways = 0
+    for k in range(n // 2 + 1):
+        total_ways += math.comb(n - k, k)
+    return total_ways
+
+# Runtime: 0ms (Beats 100%)
+# Memory: 16.62 MB (Beats 19.37%)
