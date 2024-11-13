@@ -1,0 +1,13 @@
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n == 0:
+            return 1
+        elif n == 1:
+            return 1        
+        return self.climbStairs(n - 1) + self.climbStairs(n - 2)
+
+#Giai thich:
+Bước từ bậc i-1: Nếu bạn đang ở bậc i-1, bạn có thể bước lên 1 bậc để tới bậc i. Vậy nên, số cách để lên tới bậc i từ bậc i-1 chính là số cách để lên bậc i-1, tức là dp[i−1].
+Bước từ bậc i-2: Nếu bạn đang ở bậc i-2, bạn có thể bước lên 2 bậc để tới bậc i. Vậy nên, số cách để lên tới bậc i từ bậc i-2 chính là số cách để lên bậc i-2, tức là dp[i−2].
+
+# Runtime: exceed limit
