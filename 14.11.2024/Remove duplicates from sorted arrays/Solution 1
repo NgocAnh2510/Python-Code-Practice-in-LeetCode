@@ -1,0 +1,25 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        new_list = []
+        for i in nums:
+            if i not in new_list:
+                new_list.append(i)
+        for i in range(len(new_list)):
+            nums[i] = new_list[i]
+        return len(new_list)
+
+or:
+def removeDuplicates(self, nums: List[int]) -> int:
+    new_list = []
+    for i in nums:
+        if i not in new_list:
+            new_list.append(i)
+    
+    # Sao chép các phần tử duy nhất trở lại vào `nums` ở đầu danh sách
+    nums[:len(new_list)] = new_list
+    
+    # Trả về số lượng phần tử duy nhất
+    return len(new_list)
+
+#Runtime: 15ms (beats 16.33%)
+#Memory: 17.95 MB (beats 48.56%)
