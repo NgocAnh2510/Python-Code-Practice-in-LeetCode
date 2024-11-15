@@ -1,0 +1,11 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        output = -1
+        for i in range(len(haystack) - len(needle) + 1):
+            if haystack[i:i + len(needle)] == needle:
+                output = i
+                break
+        return output
+
+# Runtime: 0 ms (beats 100%)
+# Memory: 16.60 MB (beats 23.54%)
