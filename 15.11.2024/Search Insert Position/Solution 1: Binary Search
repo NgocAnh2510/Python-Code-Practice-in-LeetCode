@@ -1,0 +1,18 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        def search(nums, target, low, high):
+            while low <= high:  # Điều kiện dừng khi low vượt qua high
+                mid = (low + high) // 2
+                if nums[mid] == target:
+                    return mid  # Trả về vị trí nếu tìm thấy target
+                elif nums[mid] < target:
+                    low = mid + 1  # Tìm kiếm ở phía bên phải
+                else:
+                    high = mid - 1  # Tìm kiếm ở phía bên trái
+
+            return low  # Nếu không tìm thấy target, return low như vị trí chèn
+
+        return search(nums, target, 0, len(nums) - 1)
+
+# Runtime: 0 ms (Beats 100%)
+# Memory: 17.32 MB (Beats 21.57%)
