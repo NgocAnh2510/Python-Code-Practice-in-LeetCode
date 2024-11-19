@@ -6,3 +6,18 @@ def plusOne(digits: list[int]) -> list[int]:
         level += 1
     list_num = [int(x) for x in str(final_num + 1)]
     print(list_num)
+
+def plusOne(digits: list[int]) -> list[int]:
+    num = 0
+    for digit in digits:
+        num = num * 10 + digit  
+    return [int(x) for x in str(num + 1)]
+
+def plusOne(digits: list[int]) -> list[int]:
+    for i in range(len(digits)- 1, -1, -1):
+        if digits[i] < 9:
+            digits[i] += 1
+            return digits
+        digits[i] = 0
+    return [1] + digits
+
