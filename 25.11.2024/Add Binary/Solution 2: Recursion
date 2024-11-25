@@ -1,0 +1,15 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        def binary_add(i, j, carry: int, result: str) -> str:
+            if i < 0 and j < 0 and carry == 0:
+                return result
+            bit_a = int(a[i]) if i >= 0 else 0
+            bit_b = int(b[j]) if j >= 0 else 0
+            total = bit_a + bit_b + carry
+        #result = str(total % 2) + result
+        
+            return binary_add(i - 1, j -1, total // 2, str(total % 2) + result)
+        return binary_add(len(a) - 1, len(b) - 1, 0, "")
+
+#Runtime: 1ms (beats 55.63%)
+#Memory: 17.73MB (beats 7.54%)
