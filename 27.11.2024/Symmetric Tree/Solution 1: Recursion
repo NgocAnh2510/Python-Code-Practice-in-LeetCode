@@ -1,0 +1,27 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if root is None:
+            return True
+
+        def recursive_tree(p, q) -> bool: # type: ignore
+            if p is None and q is None:
+                return True
+            elif p is None or q is None:
+                return False
+            if p.val != q.val:
+                return False
+            
+            left_right =  recursive_tree(p.left, q.right)
+            right_left = recursive_tree(p.right, q.left)
+
+            return left_right and right_left
+        return recursive_tree(root.left, root.right)
+
+#Runtime: 0ms (beats 100%)
+#Memory: 17.36MB (beats 5.99%)
