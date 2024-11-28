@@ -1,0 +1,33 @@
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        def merge_sort(a: List[int], b: List[int]) -> List[int]:
+            i, j, n = 0, 0, len(a) + len(b)
+            out = [0 for x in range(n)]
+            k = 0
+            while k <= n - 1:
+                if i >= len(a):
+                    out[k] = b[j]
+                    j += 1
+                elif j >= len(b):
+                    out[k] = a[i]
+                    i += 1
+                elif a[i] <= b[j]:
+                    out[k] = a[i]
+                    i += 1
+                else:
+                    out[k] = b[j]
+                    j += 1
+                k += 1
+            return out
+
+        n = len(nums) // 2
+        a, b = nums[:n], nums[n:]
+        if len(a) > 1:
+            a = self.sortArray(a)
+        if len(b) > 1:
+            b= self.sortArray(b)
+        list_out = merge_sort(a, b)
+        return list_out
+
+#Runtime: 1382 ms (beats 5.31%)
+#Memory: 26.14 MB (beats 21.68%)
